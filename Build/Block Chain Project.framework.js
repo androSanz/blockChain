@@ -1993,13 +1993,13 @@ var tempI64;
 // === Body ===
 
 var ASM_CONSTS = {
-  4637408: function() {return Module.webglContextAttributes.premultipliedAlpha;},  
- 4637469: function() {return Module.webglContextAttributes.preserveDrawingBuffer;},  
- 4637533: function() {return Module.webglContextAttributes.powerPreference;},  
- 4637591: function() {Module['emscripten_get_now_backup'] = performance.now;},  
- 4637646: function($0) {performance.now = function() { return $0; };},  
- 4637694: function($0) {performance.now = function() { return $0; };},  
- 4637742: function() {performance.now = Module['emscripten_get_now_backup'];}
+  4637296: function() {return Module.webglContextAttributes.premultipliedAlpha;},  
+ 4637357: function() {return Module.webglContextAttributes.preserveDrawingBuffer;},  
+ 4637421: function() {return Module.webglContextAttributes.powerPreference;},  
+ 4637479: function() {Module['emscripten_get_now_backup'] = performance.now;},  
+ 4637534: function($0) {performance.now = function() { return $0; };},  
+ 4637582: function($0) {performance.now = function() { return $0; };},  
+ 4637630: function() {performance.now = Module['emscripten_get_now_backup'];}
 };
 
 
@@ -2156,6 +2156,15 @@ var ASM_CONSTS = {
         HEAPF64[usedJSptr >> 3] = NaN;
       }
     }
+
+  function _IsMobile() {
+          // Verifica si el user agent contiene identificadores de dispositivos móviles
+          if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+              return 1; // Es un dispositivo móvil
+          } else {
+              return 0; // No es un dispositivo móvil
+          }
+      }
 
   var JS_Accelerometer = null;
   
@@ -15334,6 +15343,7 @@ function checkIncomingModuleAPI() {
 }
 var asmLibraryArg = {
   "GetJSMemoryInfo": _GetJSMemoryInfo,
+  "IsMobile": _IsMobile,
   "JS_Accelerometer_IsRunning": _JS_Accelerometer_IsRunning,
   "JS_Accelerometer_Start": _JS_Accelerometer_Start,
   "JS_Accelerometer_Stop": _JS_Accelerometer_Stop,
